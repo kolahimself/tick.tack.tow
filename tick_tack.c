@@ -322,33 +322,36 @@ int main(){
 
 	//game loop
 	while(!done){
-		printf("Enter game mode, h for human, defaults to vs computer:\n");
+		printf("Enter h to change game mode, defaults to vs computer:\n");
 		char m;
 		scanf(" %c", &m);
 		if(m == 'h') {
 			mode = HUMAN;
 			printf("Mode selected: Human,\n");
 		}else{
-			printf("Enter difficulty, m for medium, h for hard, defaults to easy:\n");
+			printf("Enter difficulty, e for easy, m for medium, h for hard, defaults to hard:\n");
 			scanf(" %c", &m);
 			if(m == 'm'){
 				mode = MEDIUM;
-				printf("Mode selected: Medium,\n");
+				printf("Mode selected: Medium.\n");
 			}else if(m == 'h'){
 				mode = HARD;
-				printf("Mode selected: Hard,\n");
-			}else{
+				printf("Mode selected: Hard.\n");
+			}else if(m == 'e'){
 				mode = EASY;
-				printf("Mode selected: Easy,\n");
+				printf("Mode selected: Easy.\n");
 				srand(time(0));
+			}else{
+				mode = HARD;
+				printf("Mode selected: Hard.\n");
 			}
 			welcome();
 		}
 
-		int player = 1;
-		printf("Enter f for player 2 to go first, else player 1 goes first: \n");
+		int player = 2;
+		printf("Enter f for player 1 to go first, else player 2 goes first: \n");
 		scanf(" %c", &m);
-		if(m == 'f') player = 2;
+		if(m == 'f') player = 1;
 		printf("Player %d will go first.\n", player);
 		for(int i = 0; i < 9; i ++){
 			int position = get_move(board, player);
