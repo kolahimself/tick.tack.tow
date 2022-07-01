@@ -10,6 +10,7 @@
 
 //stupid decision making, random choosing
 int computer_move_easy(int** board){
+	srand(time(0));
 	int p = 1;
 	int i = 0, j = 0;
 	do{
